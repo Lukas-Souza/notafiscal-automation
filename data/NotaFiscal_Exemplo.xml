@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PedidoEnvioRPS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                xmlns="http://www.prefeitura.sp.gov.br/nfe">
+  <Cabecalho Versao="1">
+    <CPFCNPJRemetente>
+      <CNPJ>04642554000143</CNPJ>
+    </CPFCNPJRemetente>
+  </Cabecalho>
+
+
+
+
+
+  <RPS>
+    <Assinatura>lQllFyvbUo6C68CnFrFosa2jPbjmplQ6x3Q59+vYeTXAwACzXfD71aziAnP3NtEP</Assinatura>
+
+    <ChaveRPS>
+      <InscricaoPrestador>31000000</InscricaoPrestador>
+      <SerieRPS>AAAAA</SerieRPS>
+      <NumeroRPS>002</NumeroRPS>
+    </ChaveRPS>
+
+    <TipoRPS>RPS-M</TipoRPS>
+    <DataEmissao>2025-07-29</DataEmissao>
+    <DataVencimento>2025-08-15</DataVencimento>
+    <StatusRPS>N</StatusRPS>
+    <TributacaoRPS>T</TributacaoRPS>
+
+    <ValorServicos>20500.00</ValorServicos>
+    <ValorDeducoes>5000.00</ValorDeducoes>
+    <ValorPIS>10.00</ValorPIS>
+    <ValorCOFINS>10.00</ValorCOFINS>
+    <ValorINSS>10.00</ValorINSS>
+    <ValorIR>10.00</ValorIR>
+    <ValorCSLL>10.00</ValorCSLL>
+
+    <CodigoServico>2658</CodigoServico>
+    <AliquotaServicos>0.05</AliquotaServicos>
+    <ISSRetido>false</ISSRetido>
+
+    <CPFCNPJTomador>
+      <CNPJ>12345678000199</CNPJ>
+    </CPFCNPJTomador>
+
+    <RazaoSocialTomador>Empresa Tomadora Exemplo LTDA</RazaoSocialTomador>
+    <EnderecoTomador>
+      <TipoLogradouro>Av</TipoLogradouro>
+      <Logradouro>Paulista</Logradouro>
+      <NumeroEndereco>100</NumeroEndereco>
+      <ComplementoEndereco>Cj 35</ComplementoEndereco>
+      <Bairro>Bela Vista</Bairro>
+      <Cidade>3550308</Cidade>
+      <UF>SP</UF>
+      <CEP>01310100</CEP>
+    </EnderecoTomador>
+
+    <EmailTomador>empresa@example.com.br</EmailTomador>
+    <Discriminacao>
+      Desenvolvimento de Web Site Pessoal (esquema ASCII) — com caracteres especiais:
+      a e i o u A E I O U ' " ! @ # $ % * ( ) - _ = + | \ , ; : / ?
+    </Discriminacao>
+  </RPS>
+
+
+
+
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+      <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <Reference URI="">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+          <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <DigestValue>qKjVTKAe8rHZxLLFW9+ZVBdyRt8=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>
+      nLJdZQWuihKgwGV27ClGfA/J5IjiA4R960McZdnkWSHrqD2TXGSKI0NChLO1x2CNvH...
+    </SignatureValue>
+    <KeyInfo>
+      <X509Data>
+        <X509Certificate>MIIFUzCCBDugAwIBAgIQSUJS8pELZyjasDkgGzKm0TANBgkqhkiG9...</X509Certificate>
+      </X509Data>
+    </KeyInfo>
+  </Signature>
+</PedidoEnvioRPS>
