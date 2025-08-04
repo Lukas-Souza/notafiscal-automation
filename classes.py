@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
+import pandas as pd
+import numpy as np
 def read_xml(url):
-    print("DDD")
     tree = ET.parse(url)
     root = tree.getroot()
     rps_list = root[1]
@@ -12,3 +13,26 @@ def read_xml(url):
     'CNPJ': (rps_list[17])[0].text
     }
     return dados_nota
+
+def createNote(list_nota_fiscal, Data_XLSX, file):
+        df = pd.read_excel(Data_XLSX)
+        for i in range(0,len(df),1):
+            dataFrame = df.loc[i]
+            print(dataFrame)
+
+            if dataFrame['NUMERO DA NOTA'] == np.nan or dataFrame['NUMERO DA NOTA'] == np.NaT:
+               print("dado nulo")
+               if dataFrame['CNPJ'] == list_nota_fiscal['CNPJ']:
+                  if dataFrame['VALOR'] == list_nota_fiscal['valor']:
+                    if dataFrame['Cliente'] == file:
+                       df.at[i, 'NUMERO DA NOTA'] = list_nota_fiscal['numero_nota']
+                       df.at[i, 'DATA DE EMISÃO'] = list_nota_fiscal['data_emissao']
+                       df.at[i, 'DATA DE VENCIMENTO'] = list_nota_fiscal['data_vencimento']
+                       df.to_excel(Data_XLSX, index=False)
+                       return True
+                  else:
+                     print(f"ERRO: VALORES DIFERENTE")
+                     print(f"TIPO DO ERRO: O VALOR QUE ESTA NA PLANILHA É: {df['VALOR']} E O VALOR DA NOTA FISCAL É {list_nota_fiscal['valor']}")
+                     print("DESEJA CONTINUAR?")
+               else:
+                  print("CNPJ NÂO SÂO IGUAIS")

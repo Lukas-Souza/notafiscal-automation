@@ -1,18 +1,22 @@
 import os
 import pandas as pd
-from classes import read_xml
+from classes import *
 
 
 URI_Data_XMl = './data'
-Data_XLSX = './Book 9 .xlsx'
+Data_XLSX = './table.xlsx'
 
 filesByData =os.listdir(URI_Data_XMl)
 for file in filesByData:
    try:
-      list_nota_fiscal = read_xml(f'{URI_Data_XMl}/{file}')
+      path_ = f'{URI_Data_XMl}/{file}'
+      list_nota_fiscal = read_xml(path_)
       try:
-         df = pd.read_excel(Data_XLSX)
-      except:
-         print("Ocorreu um erro ao ler o arquivo Excel")
-   except:
-      print("Ocorreu um erro ao localizar a pasta")
+         if createNote(list_nota_fiscal, Data_XLSX, file) != True:
+            print("Nota Fiscal não encontrada")
+         else:
+            print(f"Nota {file} adicionada com sucesso")
+      except Exception as erro:
+         print(f"Ocorreu um erro ao ler o arquivo Excel: {erro}")
+   except Exception as e:
+      print(f"Ocorreu um erro ao localizar a pasta: {e}")
