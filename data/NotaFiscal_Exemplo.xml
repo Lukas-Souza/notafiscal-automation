@@ -40,7 +40,7 @@
     <ISSRetido>false</ISSRetido>
 
     <CPFCNPJTomador>
-      <CNPJ>12345678000199</CNPJ>
+      <CNPJ>123.456.78/0001-99</CNPJ>
     </CPFCNPJTomador>
 
     <RazaoSocialTomador>Empresa Tomadora Exemplo LTDA</RazaoSocialTomador>
