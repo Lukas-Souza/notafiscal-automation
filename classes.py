@@ -16,23 +16,28 @@ def read_xml(url):
 
 def createNote(list_nota_fiscal, Data_XLSX, file):
         df = pd.read_excel(Data_XLSX)
+        print('#', sep='')
         for i in range(0,len(df),1):
             dataFrame = df.loc[i]
-            print(dataFrame)
-
-            if dataFrame['NUMERO DA NOTA'] == np.nan or dataFrame['NUMERO DA NOTA'] == np.NaT:
-               print("dado nulo")
+            if pd.isna(dataFrame['NUMERO DA NOTA']):
                if dataFrame['CNPJ'] == list_nota_fiscal['CNPJ']:
-                  if dataFrame['VALOR'] == list_nota_fiscal['valor']:
-                    if dataFrame['Cliente'] == file:
+                  if str(dataFrame['VALOR']) == str(list_nota_fiscal['valor']):
+                     
+                    if dataFrame['CLIENTE '] == file:
                        df.at[i, 'NUMERO DA NOTA'] = list_nota_fiscal['numero_nota']
                        df.at[i, 'DATA DE EMISÃO'] = list_nota_fiscal['data_emissao']
                        df.at[i, 'DATA DE VENCIMENTO'] = list_nota_fiscal['data_vencimento']
                        df.to_excel(Data_XLSX, index=False)
                        return True
+                    else:
+                        print(':::::::::: NOTA NÂO ENCONTRADA :::::::::::::')
+                        print(f"| DESEJA CRIAR UMA NOVA LINHA COM O NOME DE {file} ?")
+                        print("| DIGITE S para SIM")
+                        return True
                   else:
                      print(f"ERRO: VALORES DIFERENTE")
-                     print(f"TIPO DO ERRO: O VALOR QUE ESTA NA PLANILHA É: {df['VALOR']} E O VALOR DA NOTA FISCAL É {list_nota_fiscal['valor']}")
-                     print("DESEJA CONTINUAR?")
+                     print(f"TIPO DO ERRO: O VALOR QUE ESTA NA PLANILHA É: {dataFrame['VALOR']} E O VALOR DA NOTA FISCAL É {list_nota_fiscal['valor']}")
+                  #    print("DESEJA CONTINUAR?")
                else:
                   print("CNPJ NÂO SÂO IGUAIS")
+      return True

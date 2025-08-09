@@ -27,7 +27,7 @@
     <StatusRPS>N</StatusRPS>
     <TributacaoRPS>T</TributacaoRPS>
 
-    <ValorServicos>20500.00</ValorServicos>
+    <ValorServicos>20500.0</ValorServicos>
     <ValorDeducoes>5000.00</ValorDeducoes>
     <ValorPIS>10.00</ValorPIS>
     <ValorCOFINS>10.00</ValorCOFINS>

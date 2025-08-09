@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+from pathlib import Path
 from classes import *
 
 
@@ -11,9 +12,10 @@ for file in filesByData:
    try:
       path_ = f'{URI_Data_XMl}/{file}'
       list_nota_fiscal = read_xml(path_)
+      nameFile = Path(file).stem
       try:
-         if createNote(list_nota_fiscal, Data_XLSX, file) != True:
-            print("Nota Fiscal não encontrada")
+         if createNote(list_nota_fiscal, Data_XLSX,nameFile) != True:
+            print("Ocorreu um erro")
          else:
             print(f"Nota {file} adicionada com sucesso")
       except Exception as erro:
